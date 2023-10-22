@@ -26,8 +26,8 @@ bg_X2 = bg.get_width()
 bg_move = 2
 
 player_size = (20, 20)
-player = pygame.Surface(player_size)
-player.fill(COLOR_WHITE)
+player = pygame.image.load("player.png").convert_alpha() # pygame.Surface(player_size)
+# player.fill(COLOR_WHITE)
 player_rect = player.get_rect()
 # player_speed = [1, 1]
 player_move_down = [0, 3]
