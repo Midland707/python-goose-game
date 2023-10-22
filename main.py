@@ -33,7 +33,7 @@ PLAYER_IMAGES = os.listdir(IMAGE_PATH)
 player_size = (91, 43)
 player = pygame.transform.scale(pygame.image.load("player.png").convert_alpha(), player_size) # pygame.Surface(player_size)
 # player.fill(COLOR_WHITE)
-player_rect = player.get_rect()
+player_rect = pygame.Rect(100, (HEIGHT/2)-45, *player_size)
 # player_speed = [1, 1]
 player_move_down = [0, 3]
 player_move_up = [0, -3]
@@ -52,7 +52,7 @@ def create_bonus():
     bonus_size = (89, 149)
     bonus = pygame.transform.scale(pygame.image.load("bonus.png").convert_alpha(), bonus_size) #pygame.Surface(bonus_size)
     # bonus.fill(COLOR_BONUS)
-    bonus_rect = pygame.Rect(random.randint(10, WIDTH-60), 0, *bonus_size)
+    bonus_rect = pygame.Rect(random.randint(30, WIDTH-60), 0, *bonus_size)
     bonus_move = [0, random.randint(3, 5)]
     return [bonus, bonus_rect, bonus_move]
 
@@ -130,7 +130,7 @@ while playing:
             bonuses.pop(bonuses.index(bonus))               
 
     main_display.blit(player, player_rect)
-    main_display.blit(FONT.render(str(score), True, COLOR_SCORE), (WIDTH-50, 20))
+    main_display.blit(FONT.render(str(score), True, COLOR_SCORE), (WIDTH-50, 30))
 
     pygame.display.flip()
 
