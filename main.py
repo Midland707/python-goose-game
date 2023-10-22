@@ -8,7 +8,7 @@ pygame.init()
 
 FPS = pygame.time.Clock()
 
-HEIGHT = 600
+HEIGHT = 700
 WIDTH = 800
 
 FONT = pygame.font.SysFont('Verdana', 20)
@@ -19,6 +19,8 @@ COLOR_ENEMY = (255, 0, 0)
 COLOR_BONUS = (0, 255, 0)
 
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
+
+bg = pygame.transform.scale(pygame.image.load('background.png'), (WIDTH, HEIGHT))
 
 player_size = (20, 20)
 player = pygame.Surface(player_size)
@@ -71,7 +73,9 @@ while playing:
         if event.type == CREATE_BONUS:
             bonuses.append(create_bonus())
 
-    main_display.fill(COLOR_BLACK)
+    # main_display.fill(COLOR_BLACK)
+
+    main_display.blit(bg, (0, 0))
 
     keys = pygame.key.get_pressed()
 
